@@ -90,6 +90,21 @@ border-image:url(borderimg.png) 70 70 70 70 repeat;/* url的参数为字符串 �
 color：rgba(R,G,B,A,0.3) /*前三个参数的取值范围是0-255 第四个的范围是0-1*/
 ```
 ### 2、线性渐变
+线性渐变语法
+```
+linear-gradient(top left,color1 color2,color3,color4 ... )
+```
+
+|    角度      |   英文     |   作用    |
+|:---          |  :---     |  :---     |
+|      0deg    |  to top   |  从下向上  |
+|      90deg   | to right  |  从左向右  |
+|     180deg   | to bottom |  从上向下  |
+|      270deg  |  to left  |  从右向左  |
+|        -     |  to top left   |  右下向左上  |
+|        -     |  to top right  |  左下向右上  |
+||||
+
 
 
 
