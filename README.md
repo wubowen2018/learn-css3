@@ -91,8 +91,11 @@ color：rgba(R,G,B,A,0.3) /*前三个参数的取值范围是0-255 第四个的�
 ```
 ### 2、线性渐变
 线性渐变语法
-```
-linear-gradient(top left,color1 color2,color3,color4 ... )
+```css
+/*linear-gradient(top left,color1 color2,color3,color4 ... );*/
+background-image: linear-gradient(to left,rgb(240, 140, 82), rgb(230, 61, 75));
+background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);
+
 ```
 
 |    角度      |   英文     |   作用    |
