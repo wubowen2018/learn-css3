@@ -208,6 +208,30 @@ background-color:color;
 3. 如果有多个背景图片，而其他属性只有一个（例如 background-repeat 只有一个），表明所有背景图片应用该属性值；
 4. background-color 只能设置一个。
 
+## 第六章 选择器
+### 1.属性选择器添加`通配符` E[attr X=val]
+
+|属性选择器|功能描述|
+|:-:         |:---:                                         |
+| E[attr^=val]   |选择元素E，且E定义了属性attr，且attr属性的值`以val开头`|
+| E[attr$=val]   |选择元素E，且E定义了属性attr，且attr属性的值`以val结尾`|
+| E[attr*=val]   |选择元素E，且E定义了属性attr，且attr属性的值`包含val`|
+|||
+
+```CSS
+a[class^=icon]{ /*class以icon开头*/
+  background: green;
+  color:#fff;
+}
+a[href$=pdf]{ /*herf以pdf结尾*/
+  background: orange;
+  color: #fff;
+}
+a[title*=more]{ /*title包含more*/
+  background: blue;
+  color: #fff;
+}
+```
 
 
 
