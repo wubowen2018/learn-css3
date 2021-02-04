@@ -108,6 +108,108 @@ background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,v
 |        -     |  to top right  |  左下向右上  |
 ||||
 
+## 第四章 文字
+### 1.text-overflow 和 word-wrap
+text-overflow 是用来设置文字溢出所在区域是否设置成一个 `缺省标记`
+```css
+text-overflow:clip||ellipsis /*clip表示剪切 ellipsis表示显示成一个缺省标记 ... */
+```
+但是text-overflow只是设置了文字溢出所在区域后怎么显示，要想显示一个`缺省标记`，还要设置**overflow:hidden**溢出隐藏和 **white-space:nowrap** 强制在一行显示文本
+```css
+text-overflow:ellipsis;
+overflow:hidden;
+white-space: nowrap;
+```
+word-wrap是用来控制在行尾是否拆开单词，默认值是``normal``即是不拆开单词，也有``break-word``选项表示拆开单词换行。这个属性真的不常用，一般用浏览器默认的就好
+```css
+word-wrap: break-word;
+```
+
+### 2.@font-face
+`@font-face`像一个语法糖，加载来自服务器端的字体，语法如下
+```css
+@font-face{
+    font-family: "MOOC FONT";
+    src:url("http://www.imooc.com/Amaranth-BoldItalic.otf")
+}
+```
+之后就可以使用font-*来使用字体了。语法如下：
+```css
+font-family: "MOOC FONT";/*必须写，且需要制定为@font-face 引入的字体名*/
+font-weight:500;
+font-size: 18px;
+```
+
+### 3. text-shadow
+```CSS
+text-shadow: X-Offset Y-Offset blur color;
+```
+
+|    值      |   描述                                       |
+|:-:         |:---:                                         |
+| X-Offset   | 阴影水平偏移的距离，正值向右，负值向左          |
+| Y-Offset   | 阴影垂直偏移的距离，正值向上，负值向下          |
+|    blur    | 模糊程度，不可为负，0表示没有效果，越大越模糊    |
+|||
+
+## 第五章 背景
+
+### 1、 background-origin
+`background-origin` 描述的是背景图片从哪里开始显示。默认从内边距开始展示。
+```CSS
+background-origin: border-box | padding-box | content-box;
+```
+`注意：`如果背景不是no-peat，这个属性无效，会从`边框`开始显示
+
+### 2、 background-clip
+`background-clip` 裁切背景图片，满足需要。语法如下，默认会裁掉边框以外的部分，`no-clip`表示从不裁切。
+```css
+background-clip: border-box | padding-box | content-box |no-clip;
+```
+
+### 3、 background-size
+
+`background-size` 背景图显示，默认值`auto`表示按照原图片显示，语法如下：
+```CSS
+background-size: auto | <长度值> | <百分比> | cover | contain
+```
+
+|    值      |   描述                                       |
+|:-:         |:---:                                         |
+| auto   | 原尺寸显示          |
+| 长度值   | 成对出现，分别表示宽高；如果只写一个表示宽，高等比缩放  |
+| 百分比   | 1%-100%。将背景图片的宽高依次设置成所在元素的宽高的百分比，如果设置一个值，设置宽，高等比缩放    |
+| cover   | 如词意，封面，拉伸覆盖    |
+| contain   | 适应最大边，另一边等比缩放    |
+|||
+
+### 3、 multiple-backgrounds
+给一个元素添加多个背景。
+
+`缩写写法`
+```css
+background ： [background-color] | [background-image] | [background-position][/background-size] | [background-repeat] | [background-attachment] | [background-clip] | [background-origin],...
+```
+
+`拆解写法`
+```css
+background-image:url1,url2,url3...urlN;
+background-repeat:repeat1,repeat2,repeat3...repeatN;
+background-position:position1,position2,position3...positionN;
+background-attachment:attachment1,attachment2,attachment3...attachmentN;
+background-origin: origin1,origin2,origin3...originN;
+background-clip: clip1,clip2,clip3...clipN;
+background-size: size1,size2,size3...sizeN;
+background-color:color;
+```
+`注意：`
+1. 逗号隔开没组值；
+2. 如果有 size 值，需要紧跟 position 并且用 "/" 隔开；
+3. 如果有多个背景图片，而其他属性只有一个（例如 background-repeat 只有一个），表明所有背景图片应用该属性值；
+4. background-color 只能设置一个。
+
+
+
 
 
 

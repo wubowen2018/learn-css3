@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-overflow 和 word-wrap</title>
+    <style>
+        .testOverFlow{
+            width: 1000px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis;
+
+            color: white;
+            font-size: 32px;
+            font-weight: 500;
+
+            background-image: linear-gradient(to top left,rgb(235, 114, 114),rgb(240, 82, 82),rgb(236, 95, 95));
+
+        }
+        .wordWrap{
+            width: 200px;
+            word-wrap: break-word;
+            text-align: justify;
+        }
+
+    </style>
+</head>
+<body>
+    <p class="testOverFlow">这是一段很长很长的文字，主要目的是为了让文字超出p标签的范围。。。</p>
+    <div class="wordWrap">This is a long text,alongword to over flow the div tag</div>
+</body>
+</html>
