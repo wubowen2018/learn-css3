@@ -233,9 +233,48 @@ a[title*=more]{ /*title包含more*/
 }
 ```
 
+### 2.结构性伪类选择器--root
 
+```CSS
+:root{
+    background:#333;
+}/*等价*/
+html{
+   background:#333; 
+}
+```
 
+### 2.结构性伪类选择器--E:not([attr=val])
 
+选择除attr=val的所有元素
+```CSS
+.nav li:not(:first-child)::before{
+    content: '';
+    position: absolute;
+    height:15px;
+    width: 1px;
+    top:0;
+    bottom:0;
+    left: 0;
+    margin: auto;
+    background-image: linear-gradient(to top,rgba(255, 221, 221,0),rgba(255, 255, 255,.8),rgba(255, 221, 221,0));
+}
+input:not([type="submit"]){
+  border:1px solid red;
+}
+```
+
+### 3.结构性伪类选择器--E:empty
+选择`没有任何内容`的元素,这里的没有大概意思是`none`，不是空格
+```CSS
+p:empty{
+    display:none
+}
+```
+
+### 4.结构性伪类选择器--E:target
+
+### 5.结构性伪类选择器--E:first-child
 
 
 

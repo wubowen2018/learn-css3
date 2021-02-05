@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E[attr X=val]属性选择器 not root </title>
+    <style>
+        :root{
+            background-image: linear-gradient(to top right,rgb(255, 106, 235),rgb(245, 27, 208),rgb(255, 0, 234),rgb(255, 0, 255));
+            background-repeat: no-repeat;
+
+        }
+        .wrap span:not([class$="1"]){
+            color: aqua;
+        }
+        .wrap1 span:not([class^="text"]){
+        color: aqua;
+        }
+        .wrap2 span:nth-of-type(2n+1){
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <span class="textSpan1">测试文字</span>
+        <span class="textSpan2">测试文字</span>
+        <span class="textSpan3">测试文字</span>
+        <span class="textSpan4">测试文字</span>
+        <span class="textSpan5">测试文字</span>
+        <span class="txtSpan1">还是测试的文字<span>
+        <span class="txtSpan2">还是测试的文字</span>
+    </div>
+    <div class="wrap1">
+        <span class="textSpan1">测试文字</span>
+        <span class="textSpan2">测试文字</span>
+        <span class="textSpan3">测试文字</span>
+        <span class="textSpan4">测试文字</span>
+        <span class="textSpan5">测试文字</span>
+        <span class="txtSpan1">还是测试的文字<span>
+        <span class="txtSpan2">还是测试的文字</span>
+    </div>
+    <div class="wrap2">
+        <span class="textSpan1">测试文字</span>
+        <span class="textSpan2">测试文字</span>
+        <span class="textSpan3">测试文字</span>
+        <span class="textSpan4">测试文字</span>
+        <span class="textSpan5">测试文字</span>
+        <span class="txtSpan1">还是测试的文字<span>
+        <span class="txtSpan2">还是测试的文字</span>
+    </div>
+</body>
+</html>
