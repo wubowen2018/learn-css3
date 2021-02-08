@@ -184,7 +184,7 @@ background-size: auto | <长度值> | <百分比> | cover | contain
 |||
 
 ### 3、 multiple-backgrounds
-给一个元素添加多个背景。
+>给一个元素添加多个背景。
 
 `缩写写法`
 ```css
@@ -246,7 +246,7 @@ html{
 
 ### 2.结构性伪类选择器--E:not([attr=val])
 
-选择除attr=val的所有元素
+>选择除attr=val的所有元素
 ```CSS
 .nav li:not(:first-child)::before{
     content: '';
@@ -265,7 +265,7 @@ input:not([type="submit"]){
 ```
 
 ### 3.结构性伪类选择器--E:empty
-选择`没有任何内容`的元素,这里的没有大概意思是`none`，不是空格
+>选择`没有任何内容`的元素,这里的没有大概意思是`none`，不是空格
 ```CSS
 p:empty{
     display:none
@@ -275,6 +275,141 @@ p:empty{
 ### 4.结构性伪类选择器--E:target
 
 ### 5.结构性伪类选择器--E:first-child
+>E:first-child表示选择`父元素`的`第一个` **子元素**
+```CSS
+ol li:first-child{
+        color: chartreuse;
+    }
+```
+
+### 6.结构性伪类选择器--E:last-child
+>E:last-child表示选择`父元素`的`最后一个` **子元素**
+```CSS
+ol li:last-child{
+    color: chartreuse;
+}
+```
+### 7.结构性伪类选择器--E:nth-child(n)
+>E:nth-child(n)表示选择`父元素`的`一个或多个指定元素`
+
+>n 
+
+>- 可以是整数(1,2,3,4)
+
+>- 也可以是表达式(2n+1|2n)
+
+>- 也可以是关键字(odd|even)
+```CSS
+ol li:nth-child(odd){
+    color: chartreuse;
+}  
+```
+
+### 8.结构性伪类选择器--E:nth-last-child(n)
+>E:nth-last-child(n)表示选择`父元素`的`一个或多个指定元素`,与:nth-child(n)的区别是，:nth-last-child(n)选择则的是从最后一个元素开始
+n 
+    可以是整数(1,2,3,4)        倒数前四个
+    也可以是表达式(2n+1|2n)   
+    也可以是关键字(odd|even)
+```CSS
+ol li:nth-last-child(5){  /*倒数第五个的颜色*/
+    color: chartreuse;
+}  
+```
+
+### 9.结构性伪类选择器--E:first-of-type
+>E:first-of-type表示选择`父元素`的`第一个指定类型的` **子元素**
+```CSS
+wrap div:first-of-type{
+        color: chartreuse;
+    }
+```
+
+`注意：`:fist-child表示父元素下第一个子元素，:first-of-type表示父元素下一个指定类型的子元素。
+
+### 10.结构性伪类选择器--E:last-of-type
+>E:last-of-type表示选择`父元素`的`最后一个指定类型的` **子元素**
+```CSS
+wrap div:last-of-type{
+    color: chartreuse;
+}
+```
+
+### 11.结构性伪类选择器--E:nth-of-type
+>:nth-of-type(n)和:nth-child(n)在功能上非常类似，但是:nth-of-type(n)只是计算父元素下指定类型的的元素的个数。n的用法是一样的
+
+### 12.结构性伪类选择器--E:nth-last-of-type
+>:nth-last-of-type(n)和:nth-last-child(n)在功能上非常类似，但是:nth-last-of-type(n)只是计算父元素下指定类型的的元素的个数。n的用法是一样的
+
+### 13.结构性伪类选择器--E:olny-child 
+>:only-of-child选择父元素下唯一一个子元素
+
+### 14.结构性伪类选择器--E:olny-of-type
+>:only-of-typex选择父元素下唯一一个类型的元素
+
+
+## 第七章 选择器
+### 1.:enabled选择器 和 disabled
+>form表单里的某些元素，有的含有`enabled`属性，:enable可以选择这些元素，当禁用的时候`:disabled`选择器可以选择它们。
+```CSS
+input[type="text"]:enabled{
+    background: #ccc;
+    border: 2px solid springgreen;
+}
+input[type="text"]:disabled{
+    background: #ccc;
+    border: 2px solid springgreen;
+}
+```
+
+### 2.:enabled选择器 和 disabled
+```CSS
+input[type="checkbox"]:checked + span{
+    opacity: 1;
+}
+```
+
+### 3.伪元素选择器 ::selection
+>用来选择那些突出显示的文字，比如 `被鼠标选中的文字`
+
+>`被鼠标选中的文字`默认情况下是蓝色的背景，白色的文字
+
+`注意：`
+
+1. IE9+、Opera、Google Chrome 以及 Safari 中支持 ::selection 选择器。
+
+2. Firefox 支持替代的 ::-moz-selection。
+
+```CSS
+::selection{
+    background: orchid;
+    color: papayawhip;
+    text-shadow: 0 1px 3px;
+    line-height: 19px;
+}
+```
+
+### 4.伪元素选择器 :read-only 和 :read-write
+>用来选择那些`只读`和`非只读`的input框
+```CSS
+input[type="text"]:not(:read-only){
+    border: 1px solid rgb(170, 128, 72);
+    border-radius: 2px;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 1px 5px rgb(233, 72, 72);
+}
+input[type="text"]:read-only{
+    border: 1px solid #ccc;
+    color: whitesmoke;
+}
+```
+
+### 4.伪元素选择器 ::before 和 ::after
+>`::before`和`::after`是用来给元素前后插入内容的，常和`content`一起使用，使用的场景多是用来清除浮动和做一些样式效果
+
+
+
 
 
 

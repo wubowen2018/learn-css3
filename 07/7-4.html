@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:readonly </title>
+    <style>
+        form{
+            margin: 30px auto;
+            padding: 10px;
+            border-radius: 10px;
+            width: 300px;
+            border: 2px solid papayawhip;
+        }
+        form div{
+            margin-bottom: 10px;
+        }
+        input[type="text"]:not(:read-only){
+            border: 1px solid rgb(170, 128, 72);
+            border-radius: 2px;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 0 1px 5px rgb(233, 72, 72);
+        }
+        input[type="text"]:read-only{
+            border: 1px solid #ccc;
+            color: whitesmoke;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="#">
+        <div>
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" placeholder="大漠孤烟直"/>
+        </div>
+        <div>
+            <label for="pwd">地址：</label>
+            <input type="text" id="pwd" name="pwd" placeholder="中国上海" readonly="readonly">
+        </div>
+    </form>
+</body>
+</html>

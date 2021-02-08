@@ -6,14 +6,35 @@
     <title>Document</title>
     <style>
         .wrap{
+            margin: 20px auto;
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            background-image: linear-gradient(to top,rgb(2, 2, 2),rgb(99, 99, 99),rgb(160, 160, 160));
+            list-style: none;
+            color: #8a2be2;
+            font-size: 24px;
+
+        }
+        .wrap div:first-of-type{
+            color: #ff0000a9;
+        }
+        ol li{
             
+        }
+
+        ol li:first-child{
+            color: chartreuse;
         }
     </style>
 </head>
 <body>
     <div class="wrap">
+        <p>这是一个p标签</p>
+        <div class="box"><span class="textSpan">另外一个span</span></div>
         <ol>
             <li>就乘以3</li>
+            <span>这是span</span>
             <li>就乘以3</li>
             <li>就乘以3</li>
         </ol>
