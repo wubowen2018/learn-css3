@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rotate skew scale</title>
+    <style>
+        .wrapper{
+            width: 200px;
+            height: 200px;
+            border: 1px dotted red;
+            margin: 100px auto;
+        }
+        .wrapper > div{
+            width: 200px;
+            height: 200px;
+            background: orange;
+            text-align: center;
+            color: #ffffff;
+            line-height: 200px;
+        }
+        .wrapper div span{
+            display: block;
+        }
+        .wrapper > div:hover{
+            -webkit-transform: rotate(45deg);
+        }
+        .wrapper > div > span:hover{
+            -webkit-transform: rotate(-45deg);
+        }
+        .skew{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 2px dotted red;
+            margin: 100px auto;
+        }
+        .skew div{
+           width: 200px;
+           height: 200px;
+           background: chartreuse;
+           transform: skew(30deg,30deg);
+           line-height: 200px;
+           text-align: center;
+           color: rgb(255, 0, 0);
+           font-size: 12px;
+        }
+        .skew div span{
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: skew(-30deg,-30deg);
+        }
+        .scale{
+            width: 200px;
+            height: 200px;
+            border: 2px dotted red;
+            margin: 100px auto;
+        }
+        .scale > div{
+            width: 200px;
+            height: 200px;
+            background: #376608;
+            color: deeppink;
+            line-height: 200px;
+            text-align: center;
+        }
+        .scale > div:hover{
+            opacity: 0.5;
+            transform: scale(1.5,1.5);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div><span>这里是文字，希望不旋转</span></div>
+    </div>
+    <div class="skew">
+        <div><span>这里是文字，希望不斜切</span></div>
+    </div>
+
+    <div class="scale">
+        <div><span>这是文字，不想缩放</span></div>
+    </div>
+</body>
+</html>

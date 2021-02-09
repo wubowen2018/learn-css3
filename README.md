@@ -408,14 +408,90 @@ input[type="text"]:read-only{
 ### 4.伪元素选择器 ::before 和 ::after
 >`::before`和`::after`是用来给元素前后插入内容的，常和`content`一起使用，使用的场景多是用来清除浮动和做一些样式效果
 
+## 第八章 动画
+### 1、旋转 rotate()
+```CSS
+.wrapper > div:hover{
+    -webkit-transform: rotate(45deg);
+}
+```
 
+### 2、扭曲 skew()
+>1. `skew(x,y)`是让元素分别在X轴和Y轴方向上斜切，如果只给一个值则是在X轴上斜切，Y轴值为0
+>2. `skewX()` 和 `skewY()`是分别在X、Y轴上斜切
 
+```CSS
+.skew div{
+    width: 200px;
+    height: 200px;
+    background: chartreuse;
+    transform: skew(30deg,30deg);
+    line-height: 200px;
+    text-align: center;
+    color: rgb(255, 0, 0);
+    font-size: 12px;
+}
+```
 
+### 3、缩放 scale()
+>1. `scale(x,y)`是让元素分别在X轴和Y轴方向上缩放，如果只给一个值则是在X轴上缩放，Y轴值为0
+>2. `scaleX()` 和 `scaleY()`是分别在X、Y轴上缩放
 
+`注意：` scale()的取值默认的值为1，当值设置为0.01到0.99之间的任何值，作用使一个元素缩小；而任何大于或等于1.01的值，作用是让元素放大。
 
+```CSS
+.scale > div{
+    width: 200px;
+    height: 200px;
+    background: #376608;
+    transform: scale(.8,1.2);
+}
+```
 
+### 4、移动 translate()
+>1. `translate(x,y)`是让元素分别在X轴和Y轴方向上移动，如果只给一个值则是在X轴上移动，Y轴值为0
+>2. `translateX()` 和 `translateY()`是分别在X、Y轴上移动
 
+`注意：` translate() 像 `position relative`一样，可以在X、Y轴上移动，而不会影响其他元素。
 
+```CSS
+.wrapper div {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    background: orange;
+    color: #fff;
+    -webkit-transform: translate(50px,100px);
+    -moz-transform:translate(50px,100px);
+    transform: translate(50px,100px);
+}
+```
+
+### 5、矩阵 matrix()
+
+### 6、 tranform-origin
+>修改元素的中心位置
+```CSS
+.transform-origin div {
+    transform-origin: left top;
+}
+```
+值主要有以下几种情况：
+|关键词|百分比(%)|
+|:-         |:---                                         |
+| top = top center = center top   |  50% 0  |
+| right = right center = center right   |  100% 50%  |
+| bottom = bottom center = center bottom   |  50% 100%  |
+| left = left center = center left   |  0 50%   |
+| center = center center |  50% 50%  |
+| top left = left top |  0 0  |
+| top right = right top |  100% 0  |
+| bottom left = left bottom |  0 100%  |
+| bottom right = right bottom |  100% 100%  |
+|||
+
+### 7、 tranform-origin
 
 
 
