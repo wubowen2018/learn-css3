@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>transition-property 和 transition-timing-function</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #000;
+            transition: background-color .8s ease .1s;
+            background-clip: content-box;
+            background-repeat: no-repeat;
+            background-color: blueviolet;
+        }
+        div:hover{
+            background-color: rgb(255, 238, 0);
+        }
+        .transitionTimingFunction{
+            width: 200px;
+            height: 200px;
+            background: coral;
+            margin: 20px auto;
+            padding: 10px;
+            background-repeat: no-repeat;
+            background-clip: content-box;
+            border: 1px solid #000;
+            border-radius: 0%;
+            transition: border-radius .9s ease-in-out .1s ;
+        }
+        .transitionTimingFunction:hover{
+            border-radius: 100%;
+        }
+    </style>
 </head>
 <body>
-    
+    <div></div>
+    <div class="transitionTimingFunction"></div>
 </body>
 </html>

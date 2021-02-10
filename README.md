@@ -491,8 +491,101 @@ input[type="text"]:read-only{
 | bottom right = right bottom |  100% 100%  |
 |||
 
-### 7、 tranform-origin
+### 7、 transition-property
+>css3增加了transition模块，可以通过`鼠标单击`、`获得焦点`、`被点击`、`对任何元素改变`触发，并且平滑的改变css的属性值。
 
+实现动画，分以下步骤：
+1. 在默认样式中声明`初始状态`；
+2. 声明过渡元素的`最终状态样式`；
+3. 在默认样式中通过添加`过渡函数`，添加不同的样式。
 
+`transition`是一个复合属性，包含以下子属性
+|属性|汉含义|
+|:-         |:---|
+| transition-property |  指定动态模拟或动态的CSS属性  |
+| transition-duration |  指定完成过渡所需的时间  |
+| transition-timing-funtion |  指定过渡函数  |
+| transition-delay |  指定过渡出现的延迟时间  |
+|||
 
+>`transition-property`用来指定过渡动画的CSS属性，只有具有`中间值的css属性`才能具有过渡效果。具有过渡效果的CSS属性有：
 
+||||
+|:-|:-|:-|
+| background-color | background-position | border-bottom-color |
+| border-bottom-width | border-left-color | border-left-width |
+| border-right-color | border-right-width | border-spacing |
+|  border-top-color | border-top-width | bottom |
+|  clip | color | font-size |
+|  font-weight | height | left |
+|  letter-spacing | line-height | margin-bottom |
+|  margin-top | margin-left | margin-right |
+|  max-height | max-weight | min-height |
+|  opcity | outline-color | outline-width |
+|  padding-bottom | padding-top | padding-right |
+|  padding-left | right | text-indent |
+|  text-shadow | vertical-align | visibility |
+|  width | z-index | word-spacing |
+||||
+
+`注意：`假如transition-property设置了all，则是所有设置的中间值的属性都会过渡。
+
+### 8、 transition-duration
+>`transition`子属性中的过渡时间，指的是完成过渡的耗时
+
+### 9、 transition-timing-function 
+>`transition`子属性中的过渡函数，指的是用什么方式完成过渡，比如`ease`是由初始到最终样式，由快到慢，逐渐到慢
+
+![这是过渡函数及其变化效果图](./images/timingFunction.jpg)
+
+### 9、 Keyframes 
+
+>用来声明一个动画语法如下
+```CSS
+@keyframes changeColor{
+    0%{
+        background-color:red;
+    }
+    100%{
+        background-color:green;
+    }
+}
+```
+
+`注意：`
+1. 可以用from to 分别代表0%和100%
+2. 可以在0和100%之间设置多个百分比
+
+### 9、 animation-name
+>用于调用`keyframes`声明的动画。
+
+```CSS
+div span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: orange;
+  border-radius: 100%;
+  animation-name:around;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count:infinite;
+}
+```
+>`animation-iteration-count:infinite;`声明动画重复次数无穷。infinite可以替换为`整数`
+
+### 10、animation-direction
+>主要用来设置动画播放方向，语法如下
+
+```CSS
+animation-direction: normal | alternate [,normal | alternate]*
+```
+1、默认值是`normal`，表示每次循环都是向前播放；
+
+2、`alternate`表示偶数次向前，奇数次向相反的方向播放。
+
+### 11、animation-play-state 动画播放状态
+```CSS
+animation-play-state: paused | running;
+```
