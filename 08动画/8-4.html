@@ -43,7 +43,9 @@
             width: 20px;
             height: 20px;
             background: orange;
-            transform: translateY(90px);
+            /* transform: translateY(90px); */
+            /* 使用animation-fill-mode之前需要加上上面那行，在使用animation-fill-mode:backwards;之后，开始时会迅速在第一个关键帧上等待动画开始 */
+            animation-fill-mode: backwards;
             animation-name: move;
             animation-duration: 10s;
             animation-timing-function: ease-in;

@@ -500,7 +500,7 @@ input[type="text"]:read-only{
 3. 在默认样式中通过添加`过渡函数`，添加不同的样式。
 
 `transition`是一个复合属性，包含以下子属性
-|属性|汉含义|
+|属性|含义|
 |:-         |:---|
 | transition-property |  指定动态模拟或动态的CSS属性  |
 | transition-duration |  指定完成过渡所需的时间  |
@@ -586,6 +586,53 @@ animation-direction: normal | alternate [,normal | alternate]*
 2、`alternate`表示偶数次向前，奇数次向相反的方向播放。
 
 ### 11、animation-play-state 动画播放状态
+
 ```CSS
 animation-play-state: paused | running;
 ```
+```CSS
+span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: orange;
+    transform: translateY(90px);
+    animation-name: move;
+    animation-duration: 10s;
+    animation-timing-function: ease-in;
+    animation-delay: .2s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-play-state:paused;
+}
+div:hover span {
+    animation-play-state:running;
+}
+```
+
+### 12、animation-fill-mode 动画播放状态
+>用于设置动画开始前和动画结束以后动画的行为，主要有四个值，展示如下
+
+|属性|效果|
+|:-         |:---|
+| none |  初始时不在第一个关键帧，结束后返回第一个关键帧  |
+| forwards |  结束时返回第一个关键帧  |
+| backwords |  开始时在第一个关键帧  |
+| both |  拥有forwards和backwards双重效果  |
+|||
+
+>`补充:`
+1. margin 一个值表示，上、右、下、左四个方向的外边距都是那个值
+          两个值，表示上下外边距第一个值，左右外边距第二个值
+          三个值，表示上第一个值，左右第二个值，下第三个值
+
+2. 取消边框
+```CSS
+.nav-menu > li:last-child {
+    border-right: none;
+}
+```
+3. 
+
+
+
