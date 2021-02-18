@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .Review{
+            display: flex;
+            flex-direction: column;
+        }
+        .borderRadius{
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        div[class^="r"]{
+            /* flex: 1; */
+            width: 100px;    
+            height: 100px;
+            background-color: aquamarine;
+            border: 2px solid rgb(0, 29, 19);
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        div[class^="r"]:not(:first-child){
+            margin-left: 10px;
+        }
+        .r1{
+            border-radius: 5px 10px 15px 20px;
+        }
+        .r2{
+            height: 50px !important;
+            border-radius: 50px 50px 0 0;
+        }
+        .r3{
+            /* border-radius: 100%; */
+            border-radius: 40%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="Review">
+        <div class="borderRadius">
+            <div class="r1"></div>
+            <div class="r2" ></div>
+            <div class="r3"></div>
+        </div>
+    </div>
+</body>
+</html>
