@@ -75,7 +75,7 @@ box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径
 |Y轴偏移量  | 必需。垂直阴影偏移量，正值表示阴影在上边，负值表示阴影在下边    |
 |阴影模糊半径| 可选。只能为正值，值为0时，表示阴影不具有模糊效果，值越大阴影的边缘就越模糊。|
 |阴影扩展半径| 可选。可正可负，正值表示整个阴影都延展扩大，负值表示缩小。 |
-|投影方式| 外部阴影-outset 内部阴影-insert |
+|投影方式| 外部阴影-outset 内部阴影-inset |
 |||
 
 ### 2-3、边框背景图片
@@ -113,11 +113,13 @@ text-overflow 是用来设置文字溢出所在区域是否设置成一个 `缺�
 ```css
 text-overflow:clip||ellipsis /*clip表示剪切 ellipsis表示显示成一个缺省标记 ... */
 ```
-但是text-overflow只是设置了文字溢出所在区域后怎么显示，要想显示一个`缺省标记`，还要设置**overflow:hidden**溢出隐藏和 **white-space:nowrap** 强制在一行显示文本
+但是text-overflow只是设置了文字溢出所在区域后怎么显示，要想显示一个`缺省标记`，还要设置**overflow:hidden**溢出隐藏和 **white-space:nowrap** 强制在一行显示文本。`注意：`text-overflow,overflow,white-space这些属性是写在文本元素上的，不是父元素。
 ```css
-text-overflow:ellipsis;
-overflow:hidden;
-white-space: nowrap;
+.font p{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
 ```
 word-wrap是用来控制在行尾是否拆开单词，默认值是``normal``即是不拆开单词，也有``break-word``选项表示拆开单词换行。这个属性真的不常用，一般用浏览器默认的就好
 ```css
@@ -632,6 +634,31 @@ div:hover span {
 }
 ```
 3. 
+
+## 弹性布局
+>弹性布局基础
+
+![弹性布局基础](./images/flex.png)
+
+### 1. 容器属性
+
+
+### 2. 项目属性
+2.1 order
+>默认为0，值越大越靠前，可以为负数
+
+2.2 flex属性
+```css
+flex: none |[ <flex-grow> <flex-shrink> || <flex-basis>] 
+```
+|属性|描述|
+|:---|:---|
+|flex-grow|放大比例，默认为0，即是有空间也不放大，如果值为2则占有多一倍的空间|
+|flex-shrink|缩小比例，默认为1，即是空间不足的时候缩小，都为1时，同比例缩小。如果A元素flex-shrink值为0，B元素flex-shrink值为1，则空间不足的时候0不缩小，1缩小|
+|flex-basis|固定大小，值为具体像素值|
+|||
+
+>`注意：`grow 意为长大，默认为0，当为0时不放大；shrink 意为缩小，默认为1，当为0时不缩小。
 
 
 
