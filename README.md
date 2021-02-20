@@ -3,12 +3,12 @@
 ---
 ### 1.不同浏览器及其前缀
 
-|    浏览器      |   前缀  |
-|:-:            |:---:    |
-| chrome/safari | -webkit |
-|  firefox      | -moz    |
-|     IE        |  -ms    |
-|     opera     |  -o     |
+|    浏览器      |   前缀  |  内核  |
+|:-:            |:---:    |:--:|
+| chrome/safari | -webkit |Webkit / blink|
+|  firefox      | -moz    |Gecko  |
+|     IE        |  -ms    |Trident|
+|     opera     |  -o     |Presto |
 |||
 
 ### 2.特性
@@ -36,13 +36,57 @@
 #### 变形处理
     对HTML元素进行旋转、缩放、倾斜、移动、甚至以前只能用JavaScript实现的强大动画
 
+### CSS2补充
+1. 行级元素 内容决定所占的位置，不可以通过css改变宽高
+
+>span strong em a  
+
+2. 块级元素 独占一行 可以通过css改变宽高
+
+>div p ul li form ol 
+
+3. 行级块元素
+
+>内容决定大小 可以改变宽高
+
+`可以通过改变display 的属性 修改行元素 还是块元素`
+
+`凡是带有inline 属性的元素都带有文字属性 换行会导致元素之间有六像素的间距 处理的办法是不加空白字符`
+
+4. *通配符选择器可以用来初始化所有的标签
+
+```css
+*{ 
+    padding: 0;
+    margin: 0;
+    text-decoration: none; 
+    line-style: none
+}
+```
+
+`因为通配符的权重最低，随便一个选择器就可以修改被通配符有初始化后的元素`
+
 ## 第二章边框
 ---
-#### 2-1、基础使用
+
+### 2-0 CSS2知识
+
+```CSS
+border : 2px solid green  => border-width  border-style  border-corlor 
+border-width : 粗细
+border-style : solid dotted dashed  
+border-corlor: 颜色的标识方法
+
+/*也可以分别设置*/
+border-left-color:
+border-right/top/bottom: 2px solid
 ```
+
+#### 2-1、基础使用
+```css
 border-radius:10px;/*只有一个值时，全部的圆角*/
 ```
-```
+```css
 border-radius: 5px 4px 3px 2px;/* 有四个值时顺时针，左上、右上、右下、左下*/
 ```
 
@@ -84,6 +128,7 @@ border-image:url(borderimg.png) 70 70 70 70 repeat;/* url的参数为字符串 �
 ```
 
 ## 第三章 颜色
+---
 ### 1、rgba()是红绿蓝三原色加上alpha通道
 ```CSS
 color：rgba(R,G,B,A,0.3) /*前三个参数的取值范围是0-255 第四个的范围是0-1*/
@@ -108,6 +153,30 @@ background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,v
 ||||
 
 ## 第四章 文字
+---
+### 0. css2相关知识
+
+a. font-size 
+
+b. font-weight :  lighter normal bold bolder  100 - 900
+
+c. font-style: italic
+
+d. font-family:  arail 宋体 微软雅黑
+
+e. color：green red, #ccc,rgba(224,36,10, .4) 
+
+f. text-align: center left right 
+
+g. line-height: 16px
+
+`当在一个容器里让文字垂直居中时只要让文字的line-height = 容器的高度 `
+
+h. text-indet: 2em **首行缩进**两个汉字
+
+i. text-decoration: line-through [删除线]  underline [下划线] overline [上划线] none
+
+
 ### 1.text-overflow 和 word-wrap
 text-overflow 是用来设置文字溢出所在区域是否设置成一个 `缺省标记`
 ```css
@@ -154,7 +223,7 @@ text-shadow: X-Offset Y-Offset blur color;
 |||
 
 ## 第五章 背景
-
+---
 ### 1、 background-origin
 `background-origin` 描述的是背景图片从哪里开始显示。默认从内边距开始展示。
 ```CSS
@@ -210,6 +279,7 @@ background-color:color;
 4. background-color 只能设置一个。
 
 ## 第六章 选择器
+---
 ### 1.属性选择器添加`通配符` E[attr X=val]
 
 |属性选择器|功能描述|
@@ -233,6 +303,35 @@ a[title*=more]{ /*title包含more*/
   color: #fff;
 }
 ```
+### 1.1 简单选择器的权重
+>`不同简单选择器的权重值不同，值的进制是255`
+
+|选择器|权重|
+|:--|:--:|
+|!important|infinity|
+|行间样式|1000|
+|id|100|
+|class/伪类/属性|10|
+|标签/伪元素|1|
+|通配符|0|
+|||
+
+### 1.2复杂选择器
+|选择器|语法|
+|:--|:--:|
+|父子（派生）选择器|简单选择器[空格]简单选择器|
+|直接子元素选择器  |简单选择器>简单选择器|
+|并列选择器       |简单选择器简单选择器|
+|分组选择器       |简单(复杂)选择器,简单(复杂)选择器|
+|||
+
+`注意：`并列选择器，当标签和class并列的时候，class写在前
+
+### 1.3 选择器权重的计算
+
+>把在一行上的选择器的权重加起来
+
+>`注意：`infinity+1 > infinity
 
 ### 2.结构性伪类选择器--root
 
@@ -245,7 +344,7 @@ html{
 }
 ```
 
-### 2.结构性伪类选择器--E:not([attr=val])
+### 3.结构性伪类选择器--E:not([attr=val])
 
 >选择除attr=val的所有元素
 ```CSS
@@ -350,6 +449,7 @@ wrap div:last-of-type{
 
 
 ## 第七章 选择器
+---
 ### 1.:enabled选择器 和 disabled
 >form表单里的某些元素，有的含有`enabled`属性，:enable可以选择这些元素，当禁用的时候`:disabled`选择器可以选择它们。
 ```CSS
