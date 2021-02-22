@@ -66,6 +66,35 @@
 
 `因为通配符的权重最低，随便一个选择器就可以修改被通配符有初始化后的元素`
 
+### 定位
+>`position`可以把元素变成定位元素，之后可以使用left right 移动元素。
+
+```CSS
+position:absolute|relative|fixed;
+```
+
+|定位|特性|
+|:--|:--|
+|absolute|脱离原来的层进行定位，`不再占据原来层的位置`。相对有最近有定位属性的父级进行定位，如果没有，则相对于文档定位。|
+|relative|脱离原来的层进行定位，`但是占有原来层的位置`。相对于自己出生的位置进行定位。|
+|fixed|固定在某个位置，使用left right top bottom 移动位置|
+|||
+
+### 浮动
+1. 作用： 让元素排队
+
+2. 规则：浮动元素产生了浮动流，所有产生了浮动流的元素，块级元素就看不到他们，但是产生了bfc的元素，文本类属性（inline-block）的元素，文本元素依然可以看到他们（浮动元素）。看不到他们，就当他们不存在，接着渲染。
+
+3. 问题：父级是块级元素，子元素是浮动元素， 父级因为看不到而没有办法包住他们。
+
+4. 解决：在浮动流元素后加一个p标签，p{ clear: left / right / both }，这个办法不好，引入了没有用的结构。
+   1. 使用伪元素，在父元素上加上 ::after{ content: " ";clear: both;display: block}  清除浮动流三件套
+   2. 把父元素变成bfc元素或者变成带有文本属性（inline- block）的元素
+
+>`设置了position: absoulate / float : left / right 的元素会在系统内部变成inline-block `
+
+
+
 ## 第二章边框
 ---
 
@@ -740,6 +769,8 @@ div:hover span {
 
 ![弹性布局基础](./images/flex.png)
 
+`注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。`
+
 ### 1. 容器属性
 
 
@@ -759,6 +790,11 @@ flex: none |[ <flex-grow> <flex-shrink> || <flex-basis>]
 |||
 
 >`注意：`grow 意为长大，默认为0，当为0时不放大；shrink 意为缩小，默认为1，当为0时不缩小。
+
+```CSS
+flex:auto; /*flex: 1 1 auto; 会放大，缩小，自动*/
+flex:none; /*保持定义尺寸不再弹性布局*/
+```
 
 
 

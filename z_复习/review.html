@@ -75,10 +75,13 @@
             text-shadow: 0 10px 0px #014753;
         }
         .css2{
-            flex: auto;
-
+            flex: 1;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
         }
         .trangle{
+            flex: 0 0 auto;
             width: 0;
             height: 0;
             border: 100px solid black;
@@ -87,12 +90,76 @@
             border-top-color: #fbff00 ;
         }
         .trangle1{
+            flex: 0 0 auto;
             width: 0;
             height: 0;
             border: 100px solid black;
             border-left-color: transparent ;
             border-right-color: transparent ;
             border-top-color: transparent;
+        }
+        .block_inline{
+            flex: 1;
+            /* display: flex; */
+            /* flex-flow: row nowrap; */
+        }
+        .block_inline>p{
+            flex: none;
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(to top,#333333,#555555,#999999,#eeeeee);
+        }
+        .block_inline>div{
+            flex: none;
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(to top,#333333,#555555,#999999,#eeeeee);
+        }
+        .block_inline>span{
+            flex: none;
+            width: 100px;
+            height: 100px;
+            background-image: linear-gradient(to top,#333333,#555555,#999999,#eeeeee);
+        }
+        .imageWrap{
+            flex: 1;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            background-color: #eeeeee;
+            padding: 20px;
+
+        }
+        .imageWrap img{
+            flex-flow: auto;
+            height: 200px;
+            box-sizing: border-box;
+        }
+        .imageWrap img:nth-child(n){
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .two{
+            flex: 1;
+            display: flex;
+            width: 100%;    
+            top: 100px;
+        }
+        .Right{
+            flex: 1 0 auto;
+            height: 100px;
+            background-color: burlywood;
+            opacity: 0.1;
+        }
+        .middle{
+            flex: 10 0 auto;
+            height: 100px;
+            background: chocolate;
+        }
+        .left{
+            flex: 9 0 auto;
+            height: 100px;
+            background-color: #82d615;
         }
 
     </style>
@@ -115,7 +182,28 @@
             <div class="trangle"></div>
             <div class="trangle1"></div>
         </div>
+        <div class="block_inline">
+            <p>这是一段话</p>
+            <span>这是一段话</span>
+            <div>这是一段话</div>
+        </div>
+        <div class="imageWrap">
+            <img src="../images/02.jpg" alt="" />
+            <img src="../images/timingFunction.jpg" alt="" />
+            <img src="../images/02.jpg" alt="" />
+            <img src="../images/flex.png" alt="" />
+            <img src="../images/timingFunction.jpg" alt="" />
+        </div>
+        <div class="two">
+            <div class="left"></div>
+            <div class="middle"></div>
+            <div class="Right"></div>
+        </div>
+        
+        
 
     </div>
+
+    
 </body>
 </html>
