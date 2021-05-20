@@ -37,7 +37,7 @@
     对HTML元素进行旋转、缩放、倾斜、移动、甚至以前只能用JavaScript实现的强大动画
 
 ### CSS2补充
-1. 行级元素 内容决定所占的位置，不可以通过css改变宽高
+1. 行级元素 不独占一行 内容决定所占的位置，不可以通过css改变宽高
 
 >span strong em a  
 
@@ -59,8 +59,8 @@
 *{ 
     padding: 0;
     margin: 0;
-    text-decoration: none; 
-    list-style: none;
+    text-decoration: none; /*字体样式置空*/
+    list-style: none; /*消除li圆点*/
 }
 ```
 
@@ -80,7 +80,7 @@ position:absolute|relative|fixed;
 |fixed|固定在某个位置，使用left right top bottom 移动位置|
 |||
 
-`应用：使用relative产生可定位父元素，absolute作为子元素。`
+`应用：使用relative产生可定位父元素，absolute作为子元素进行定位。`
 
 ### 浮动
 1. 作用： 让元素排队
