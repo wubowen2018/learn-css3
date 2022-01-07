@@ -833,23 +833,64 @@ div:hover span {
 
 ![弹性布局基础](./images/flex.png)
 
+容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+
 `注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。`
 
 ### 1. 容器属性
 https://blog.csdn.net/qq_41284819/article/details/112388219
 
 - flex-direction
+
+    flex-direction属性决定主轴的方向，
+    ```css
+        flex-direction: row | row-reverse | column | column-reverse;
+    ```
 - flex-wrap
+
+    默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。（1）nowrap（默认）：不换行。（2）wrap：换行，第一行在上方。（3）wrap-reverse：换行，第一行在下方。
+    ```css
+        flex-wrap: nowrap | wrap | wrap-reverse;
+    ```
 - flew-flow
+
+    flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
+    ```css
+        flex-flow: <flex-direction> || <flex-wrap>;
+    ```
+
 - justify-content
+
+    justify-content属性定义了项目在主轴上的对齐方式。flex-start（默认值）：左对齐,flex-end：右对齐,center： 居中,space-between：两端对齐，项目之间的间隔都相等,space-around：每个项目两侧的间隔相等。所以，项目之间的间隔 比 项目与边框的间隔 大一倍。
+    ```css
+        justify-content: flex-start | flex-end | center | space-between | space-around;
+    ```
 - align-items
+
+    align-items属性定义项目在交叉轴上如何对齐。flex-start：交叉轴的起点对齐。flex-end：交叉轴的终点对齐。center：交叉轴的中点对齐。baseline: 项目的第一行文字的基线对齐。stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+    ```css
+        align-items: flex-start | flex-end | center | baseline | stretch;
+    ```
 - align-content
+
+    align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。flex-start：与交叉轴的起点对齐。flex-end：与交叉轴的终点对齐。center：与交叉轴的中点对齐。
+    space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+    space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+    stretch（默认值）：轴线占满整个交叉轴。
+
+    ```css
+        align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+    ```
 
 ### 2. 项目属性
 2.1 order
->默认为0，值越大越靠前，可以为负数
+>默认为0，值越小越靠前，可以为负数
 
 2.2 flex属性
+
+flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+
 ```css
 flex: none |[ <flex-grow> <flex-shrink> || <flex-basis>] 
 ```
@@ -869,3 +910,10 @@ flex:none; /*保持定义尺寸不再弹性布局*/
 
 
 
+2.3 align-self属性
+
+align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+
+```css
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+```
