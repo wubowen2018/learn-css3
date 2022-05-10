@@ -852,7 +852,7 @@ https://blog.csdn.net/qq_41284819/article/details/112388219
     ```css
         flex-wrap: nowrap | wrap | wrap-reverse;
     ```
-- flew-flow
+- flex-flow
 
     flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
     ```css
